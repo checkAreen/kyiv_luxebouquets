@@ -1,0 +1,9 @@
+@import url('./fonts/stylesheet.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.burger-menu{
+  @apply block content-[''] bg-black w-[40%] h-[2px] absolute left-[25%] duration-300;
+}
