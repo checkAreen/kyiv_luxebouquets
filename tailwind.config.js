@@ -10,7 +10,8 @@ module.exports = {
         primary: 'Gilroy'
       },
       colors: {
-        primary: '#424245'
+        primary: '#424245',
+        secondary: '#808080'
       },
       spacing: {
         '17': '4.25rem',

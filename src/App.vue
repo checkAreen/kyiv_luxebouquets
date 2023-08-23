@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import NavBar from './components/NavBar.vue';
+  import Footer from './components/Footer.vue';
   import { ref, type Ref, watch, onMounted } from 'vue';
 
   let isMenuOpened:Ref<boolean> = ref(false);
@@ -26,6 +27,7 @@
     <NavBar @showMenu="showMenu" class="z-50" />
     <div :class="[isMenuOpened ? 'block opacity-70' : 'hidden opacity-0']" class="fixed bg-slate-300 w-screen h-screen z-10"></div>
     <router-view :class="[isMenuOpened ? 'overflow-hidden': '']"></router-view>
+    <Footer />
   </div>
 </template>
 
