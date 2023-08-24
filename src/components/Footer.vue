@@ -43,13 +43,18 @@
       <h3 class="text-[1.45vw] text-secondary">
         Contact Us
       </h3>
-      <div v-for="item in contacts" :key="item.id" class="flex flex-col">
+      <div v-for="item in contacts" :key="item.id" class="menu flex flex-col">
         <h4 class="text-[.98vw] text-secondary font-normal">
           {{ item.title }}
         </h4>
-        <p class="text-black text-[1.12vw] font-medium">
-          {{ item.text }}
-        </p>
+        <div class="flex flex-col overflow-hidden cursor-pointer h-[1.56vw]">
+          <p
+            v-for="index in 2" :key="index"
+            class="text-black text-[1.12vw] font-medium"
+          >
+            {{ item.text }}
+          </p>
+        </div>
       </div>
       <div class="flex flex-col">
         <h3 class="text-[1.45vw] text-secondary mb-6">

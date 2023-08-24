@@ -1,9 +1,33 @@
 <script setup lang="ts">
   import { directive as motion } from '@vueuse/motion'
   import { ref, type Ref } from 'vue';
+  import Button from '../UI/Button.vue';
+  import { type Button as ButtonType } from '@/types/button'
 
   // VARIABLES
   let isHovered:Ref<boolean> = ref(false);
+
+  // BUTTON STYLES
+  const btnData:ButtonType = {
+    content: 'Learn more',
+    style: 'lg:w-44 w-full lg:h-14 sm:h-16 h-12 lg:pt-4 lg:px-6 bg-white hover:bg-black duration-300',
+    type: 'button',
+    textStyle:{
+      common: 'font-medium duration-300 lg:text-base md:text-lg sm:text-xl text-base',
+
+      mainText: {
+        static: 'text-black',
+        hovered: '-translate-y-10',
+        unhovered: 'lg:-translate-y-0 translate-y-3'
+      },
+
+      secondText: {
+        static: 'text-white',
+        hovered: 'lg:-translate-y-6 -translate-y-3',
+        unhovered: ''
+      }
+    }
+  }
 </script>
 
 <template>
@@ -47,25 +71,15 @@
           We are a modern local floral studio, which specializes in the design and delivery of unique bouquets. We have the best florists who carefully select each look, our studio cooperates directly with farms for growing different flowers, so we always have fresh flowers, which are collected by our florists in exquisite bouquets. We have a collection of fresh bouquets, collections of dried bouquets, house plants, as well as fragrant candles from luxury brands to create the perfect atmosphere. Make someone's day amazing by sending flowers, plants and gifts the same or next day. Ordering flowers online has never been easier.
         </p>
       </div>
-      <button
+      <Button
+        v-motion
+          :initial="{ opacity: 0, y: 50 }"
+          :visible="{ opacity: 1, y: 0, transition:{ duration: 700 }}"
         @mouseenter="isHovered = true"
         @mouseleave="isHovered = false"
-        v-motion
-          :initial="{ opacity: 0, y: 70 }"
-          :visible="{ opacity: 1, y: 0, transition:{ duration: 100 }}"
-        class="btn__learn overflow-hidden
-          lg:w-44 w-full lg:h-14 sm:h-16 h-12 uppercase font-medium text-base border-[1px] border-black
-          lg:pt-4 lg:px-6
-          bg-white hover:bg-black duration-300"
-        type="button"
-      >
-        <h6 :class="[isHovered ? '-translate-y-10' : 'lg:-translate-y-0 translate-y-3']" class="btn__learn-black duration-300 lg:text-base md:text-lg sm:text-xl text-base">
-          Learn more
-        </h6>
-        <h6 :class="[isHovered ? 'lg:-translate-y-6 -translate-y-3' : '']" class="btn__learn-white text-white duration-300 lg:text-base md:text-lg sm:text-xl text-base">
-          Learn more
-        </h6>
-      </button>
+        :is-hovered="isHovered"
+        :btn="btnData"
+      />
     </div>
   </div>
 </template>

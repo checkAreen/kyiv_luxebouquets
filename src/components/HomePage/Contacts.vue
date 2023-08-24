@@ -3,15 +3,35 @@
   import { directive as motion } from '@vueuse/motion'
   import { useContactsStore } from '@/stores/contactsStore';
   import { ref, type Ref } from 'vue';
+  import { type Button as ButtonType } from '@/types/button';
+  import Button from '../UI/Button.vue';
 
+  // VARIABLES
   const navStore = useNavStore();
   const contactsStore = useContactsStore();
   let isHovered:Ref<boolean> = ref(false);
   let phoneInput = ref<string>('');
 
-  const logPhone = function() {
-    console.log('Booked for number', phoneInput.value);
-    phoneInput.value = ''
+  // BUTTON STYLES
+  const btnData:ButtonType = {
+    content: 'book a call',
+    style: 'h-14 relative flex flex-col items-center bg-black w-full py-4 px-6 hover:bg-primary',
+    type: 'submit',
+    textStyle:{
+      common: 'absolute text-white lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[4.5vw] duration-300',
+
+      mainText: {
+        static: '',
+        hovered: '-top-6',
+        unhovered: 'xl:top-3 top-4'
+      },
+
+      secondText: {
+        static: '',
+        hovered: 'top-3',
+        unhovered: 'xl:top-13 top-14'
+      }
+    }
   }
 </script>
 
@@ -37,26 +57,18 @@
         >
           We will call you back
         </h3>
-        <form @submit.prevent="logPhone" action="#" method="post" class="flex md:flex-row flex-col w-full sm:mb-10 mb-4 gap-4">
+        <form action="#" method="post" class="flex md:flex-row flex-col w-full sm:mb-10 mb-4 gap-4">
           <input
             v-model="phoneInput"
             type="tel" placeholder="+380 XX XXX XX XX"
             class="h-14 text-sm border-[1px] w-full p-4"
           >
-          <button
-            @mouseover="isHovered = true"
+          <Button
+            @mouseenter="isHovered = true"
             @mouseleave="isHovered = false"
-            type="submit"
-            class="overflow-hidden h-14 relative flex flex-col items-center bg-black w-full py-4 px-6 hover:bg-primary"
-          >
-            <div
-              v-for="item in contactsStore.btnStyle" :key="item.id"
-              class="absolute uppercase text-white lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[4.5vw] duration-300"
-              :class="[isHovered ? item.hovered : item.unhovered]"
-            >
-              book a call
-            </div>
-          </button>
+            :is-hovered="isHovered"
+            :btn="btnData"
+          />
         </form>
       </div>
       <!-- BOTTOM -->
