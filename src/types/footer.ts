@@ -3,3 +3,8 @@ export interface FooterContacts {
   title: string,
   text: string
 }
+
+export interface FooterShop {
+  id: number,
+  text: string
+}

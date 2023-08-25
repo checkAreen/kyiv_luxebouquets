@@ -15,20 +15,20 @@
   // BUTTON STYLES
   const btnData:ButtonType = {
     content: 'book a call',
-    style: 'h-14 flex flex-col items-center bg-black w-full py-4 px-6 hover:bg-primary',
+    style: 'h-14 flex flex-col items-center bg-black w-full sm:py-4 py-2 px-6 hover:bg-primary',
     type: 'submit',
     textStyle:{
       common: 'text-white lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[4.5vw]',
 
       mainText: {
         static: '',
-        hovered: '-translate-y-2',
-        unhovered: 'xl:translate-y-4 lg:translate-y-2 translate-y-4'
+        hovered: 'sm:-translate-y-2 -translate-y-5',
+        unhovered: 'xl:translate-y-4 lg:translate-y-2 sm:translate-y-4 translate-y-3'
       },
 
       secondText: {
         static: '',
-        hovered: 'xl:-translate-y-4 lg:-translate-y-2 -translate-y-4',
+        hovered: 'xl:-translate-y-4 lg:-translate-y-2 sm:-translate-y-4 -translate-y-2',
         unhovered: 'md:translate-y-3 translate-y-5'
       }
     }

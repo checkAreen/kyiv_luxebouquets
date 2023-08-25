@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
-import { type FooterContacts } from '@/types/footerContacts';
-import { type FooterShop } from '@/types/footerShop';
-import { type HoveredButtons } from '@/types/btnContacts';
+import { type FooterContacts, type FooterShop } from '@/types/footer';
+// import { type FooterContacts } from '@/types/footerContacts';
+// import { type FooterShop } from '@/types/footerShop';
+// import { type HoveredButtons } from '@/types/btnContacts';
 
 export const useFooterStore = defineStore('footer', {
   state: () => ({
