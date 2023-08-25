@@ -15,21 +15,21 @@
   // BUTTON STYLES
   const btnData:ButtonType = {
     content: 'book a call',
-    style: 'h-14 relative flex flex-col items-center bg-black w-full py-4 px-6 hover:bg-primary',
+    style: 'h-14 flex flex-col items-center bg-black w-full py-4 px-6 hover:bg-primary',
     type: 'submit',
     textStyle:{
-      common: 'absolute text-white lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[4.5vw] duration-300',
+      common: 'text-white lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[4.5vw]',
 
       mainText: {
         static: '',
-        hovered: '-top-6',
-        unhovered: 'xl:top-3 top-4'
+        hovered: '-translate-y-2',
+        unhovered: 'xl:translate-y-4 lg:translate-y-2 translate-y-4'
       },
 
       secondText: {
         static: '',
-        hovered: 'top-3',
-        unhovered: 'xl:top-13 top-14'
+        hovered: 'xl:-translate-y-4 lg:-translate-y-2 -translate-y-4',
+        unhovered: 'md:translate-y-3 translate-y-5'
       }
     }
   }
@@ -57,7 +57,7 @@
         >
           We will call you back
         </h3>
-        <form action="#" method="post" class="flex md:flex-row flex-col w-full sm:mb-10 mb-4 gap-4">
+        <form @submit.prevent="console.log('Booked!')" action="#" method="post" class="flex md:flex-row flex-col w-full sm:mb-10 mb-4 gap-4">
           <input
             v-model="phoneInput"
             type="tel" placeholder="+380 XX XXX XX XX"

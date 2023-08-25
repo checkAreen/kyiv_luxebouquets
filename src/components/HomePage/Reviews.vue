@@ -4,10 +4,34 @@
   import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
   import 'vue3-carousel/dist/carousel.css';
   import { useScreen } from 'vue-screen';
+  import { type Button as ButtonType } from '@/types/button';
+  import Button from '../UI/Button.vue';
 
   const reviews = useReviewsStore();
   const isHovered:Ref<boolean> = ref(false);
   let screen = useScreen();
+
+  // BUTTON STYLES
+  const btnData:ButtonType = {
+    content: 'Read reviews',
+    style: 'lg:w-[12vw] md:w-[21.2vw] w-full xl:h-[3.8vw] lg:h-[4vw] md:h-[7.3vw] sm:h-[9vw] h-[14vw] bg-white xl:py-4 xl:px-6 lg:py-2 lg:px-0 px-6 sm:py-4 py-2 hover:bg-black',
+    type: 'button',
+    textStyle:{
+      common: 'lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[3.7vw]',
+
+      mainText: {
+        static: 'text-black',
+        hovered: '-translate-y-5',
+        unhovered: 'xl:translate-y-1 lg:translate-y-1 md:translate-y-2 translate-y-1'
+      },
+
+      secondText: {
+        static: 'text-white',
+        hovered: 'xl:-translate-y-7 lg:-translate-y-3 sm:-translate-y-6',
+        unhovered: 'xl:translate-y-2 lg:translate-y-5  md:translate-y-2 translate-y-5'
+      }
+    }
+  }
 </script>
 
 <template>
@@ -74,22 +98,12 @@
       </Carousel>
     </div>
     <!-- Button -->
-    <button
-      @mouseover="isHovered = true"
+    <Button
+      @mouseenter="isHovered = true"
       @mouseleave="isHovered = false"
-      type="button"
-      class="overflow-hidden lg:w-[12vw] md:w-[21.2vw] w-full xl:h-[3.8vw] lg:h-[4vw] md:h-[7.3vw] sm:h-[9vw] h-[14vw] bg-white border-[1px] border-black xl:py-4 xl:px-6 lg:py-2 lg:px-0 px-6 sm:py-4 py-2 hover:bg-black duration-300"
-    >
-      <div class="overflow-hidden xl:h-5/6 lg:h-auto sm:h-5/6 h-full flex flex-col items-center justify-between">
-        <div
-          v-for="item in reviews.btnReviews" :key="item.id"
-          class="uppercase lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[3.7vw] duration-300"
-          :class="[isHovered ? item.hovered : item.unhovered, item.staticStyles]"
-        >
-          Read reviews
-        </div>
-      </div>
-    </button>
+      :is-hovered="isHovered"
+      :btn="btnData"
+    />
   </div>
 </template>
 

@@ -10,20 +10,20 @@
   // BUTTON STYLES
   const btnData:ButtonType = {
     content: 'Learn more',
-    style: 'lg:w-44 w-full lg:h-14 sm:h-16 h-12 lg:pt-4 lg:px-6 bg-white hover:bg-black duration-300',
+    style: 'lg:w-44 w-full xl:h-14 lg:h-12 sm:h-16 h-12 lg:pt-4 lg:px-6 bg-white hover:bg-black',
     type: 'button',
     textStyle:{
-      common: 'font-medium duration-300 lg:text-base md:text-lg sm:text-xl text-base',
+      common: 'lg:text-base md:text-lg sm:text-xl text-base',
 
       mainText: {
         static: 'text-black',
         hovered: '-translate-y-10',
-        unhovered: 'lg:-translate-y-0 translate-y-3'
+        unhovered: 'xl:-translate-y-0 lg:-translate-y-1 md:-translate-0 translate-y-3'
       },
 
       secondText: {
         static: 'text-white',
-        hovered: 'lg:-translate-y-6 -translate-y-3',
+        hovered: 'xl:-translate-y-6 lg:-translate-y-7 md:-translate-y-4 -translate-y-3',
         unhovered: ''
       }
     }

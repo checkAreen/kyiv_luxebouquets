@@ -1,10 +1,54 @@
 <script setup lang="ts">
-  import { useServicesStore } from '@/stores/servicesStore';
   import { ref, type Ref} from 'vue';
+  import Button from '../UI/Button.vue';
+  import { type Button as ButtonType } from '@/types/button'
 
-  const servicesStore = useServicesStore();
   const isHoveredBtn:Ref<boolean> = ref(false);
   const isHoveredTransparentBtn:Ref<boolean> = ref(false);
+
+  // BUTTON STYLES
+  // 1st btn
+  const btnOneData:ButtonType = {
+    content: 'Subscribe now',
+    style: 'xl:h-17 lg:h-12 bg-white hover:bg-black lg:py-4 py-1 px-6',
+    type: 'button',
+    textStyle:{
+      common: 'lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw]',
+
+      mainText: {
+        static: 'text-black',
+        hovered: 'xl:-translate-y-9 -translate-y-4',
+        unhovered: 'xl:translate-y-1 lg:-translate-y-0 sm:translate-y-4 translate-y-3'
+      },
+
+      secondText: {
+        static: 'text-white',
+        hovered: 'xl:-translate-y-7 lg:-translate-y-4 -translate-y-3',
+        unhovered: 'xl:-translate-y-1 lg:-translate-y-0 translate-y-10'
+      }
+    }
+  }
+  // 2nd btn
+  const btnTwoData:ButtonType = {
+    content: 'Inquire Now',
+    style: 'xl:h-17 lg:h-12 md:h-20 sm:h-17 h-12 xl:w-full  border-white bg-transparent hover:bg-white py-4 px-6 z-30',
+    type: 'button',
+    textStyle:{
+      common: 'lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw]',
+
+      mainText: {
+        static: 'text-white',
+        hovered: 'lg:-translate-y-9 -translate-y-12',
+        unhovered: 'xl:translate-y-1 lg:-translate-y-0 md:translate-y-2 translate-y-1'
+      },
+
+      secondText: {
+        static: 'text-black',
+        hovered: 'xl:-translate-y-7 md:-translate-y-6 sm:-translate-y-6 -translate-y-7',
+        unhovered: 'lg:translate-y-5 translate-y-7'
+      }
+    }
+  }
 </script>
 
 <template>
@@ -67,21 +111,12 @@
               :visible="{ opacity: 1, transition: {duration: 300}}"
             class="overflow-hidden w-full"
           >
-            <button
-              @mouseover="isHoveredBtn = true"
+            <Button
+              @mouseenter="isHoveredBtn = true"
               @mouseleave="isHoveredBtn = false"
-              class="xl:h-14 lg:h-12 w-full overflow-hidden border-black border-[1px] bg-white hover:bg-black lg:py-4 py-1 px-6 duration-300 z-30"
-            >
-              <div class="flex flex-col overflow-hidden">
-                <div
-                  :class="[isHoveredBtn ? item.hovered : item.unhovered, item.staticStyles]"
-                  v-for="item in servicesStore.btnStyle" :key="item.id"
-                  class="uppercase font-medium lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] duration-300"
-                >
-                  Subscribe now
-                </div>
-              </div>
-            </button>
+              :is-hovered="isHoveredBtn"
+              :btn="btnOneData"
+            />
           </div>
         </div>
       </div>
@@ -127,21 +162,12 @@
               :visible="{ opacity: 1, y: 0,  transition: {duration: 300}}"
             class="overflow-hidden xl:w-2/12 w-full flex justify-center"
         >
-          <button
-            @mouseover="isHoveredTransparentBtn = true"
-            @mouseleave="isHoveredTransparentBtn = false"
-            class="xl:h-17 lg:h-12 md:h-20 sm:h-17 h-12 w-full overflow-hidden border-white border-[1px] bg-transparent hover:bg-white py-4 px-6 duration-300 z-30"
-          >
-            <div class="flex flex-col overflow-hidden">
-              <div
-                :class="[isHoveredTransparentBtn ? item.hovered : item.unhovered, item.staticStyles]"
-                v-for="item in servicesStore.transparentBtnStyle" :key="item.id"
-                class="uppercase font-medium lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] duration-300"
-              >
-                Inquire Now
-              </div>
-            </div>
-          </button>
+        <Button
+          @mouseenter="isHoveredTransparentBtn = true"
+          @mouseleave="isHoveredTransparentBtn = false"
+          :is-hovered="isHoveredTransparentBtn"
+          :btn="btnTwoData"
+        />
         </div>
       </div>
     </div>

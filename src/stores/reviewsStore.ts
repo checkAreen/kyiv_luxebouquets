@@ -16,20 +16,5 @@ export const useReviewsStore = defineStore('reviews', {
         author: 'Leonid Yurushev'
       }
     ] as GoogleReviews[],
-
-    btnReviews: [
-      {
-        id: 1,
-        hovered: '-translate-y-5',
-        unhovered: 'xl:translate-y-0 lg:translate-y-1 sm:translate-y-0 translate-y-1',
-        staticStyles: 'text-black'
-      },
-      {
-        id: 2,
-        hovered: 'xl:-translate-y-8 lg:-translate-y-4 md:-translate-y-8 sm:-translate-y-7 -translate-y-3',
-        unhovered: 'xl:translate-y-2 lg:translate-y-5  translate-y-2',
-        staticStyles: 'text-white'
-      }
-    ] as HoveredButtons[]
   })
 })

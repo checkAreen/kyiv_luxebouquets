@@ -45,18 +45,5 @@ export const useFooterStore = defineStore('footer', {
       {id: 4, text: 'Terms & conditions'},
       {id: 5, text: 'Privacy policy'}
     ] as FooterShop[],
-
-    footerBtn: [
-      {
-        id: 1,
-        hovered: '-translate-y-2 opacity-0',
-        unhovered: 'translate-y-4 opacity-1'
-      },
-      {
-        id: 2,
-        hovered: '-translate-y-4 opacity-1',
-        unhovered: 'translate-y-10 opacity-0'
-      }
-    ] as HoveredButtons[]
   })
 })
