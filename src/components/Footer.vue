@@ -2,7 +2,6 @@
   import { useFooterStore } from '@/stores/footer';
   import { useNavStore } from '@/stores/navStore';
   import { ref, type Ref } from 'vue';
-  import { type Button as ButtonType } from '@/types/button';
   import Button from './UI/Button.vue'
   import FooterLink from './UI/FooterLink.vue';
 
@@ -11,30 +10,9 @@
   const service = useFooterStore().footerService;
   const about = useFooterStore().footerAbout;
   const social = useNavStore().socialMedia;
+  const footerBtn = useFooterStore().btnData
 
   let isHovered:Ref<boolean> = ref(false);
-
-  // BUTTON STYLES
-  const btnData:ButtonType = {
-    content: 'Remind',
-    style: 'flex flex-col items-center bg-black w-full hover:bg-primary',
-    type: 'submit',
-    textStyle:{
-      common: 'text-white lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[3.7vw]',
-
-      mainText: {
-        static: '',
-        hovered: '-translate-y-2 opacity-0',
-        unhovered: 'xl:translate-y-4 lg:translate-y-2 sm:translate-y-4 translate-y-3 opacity-1'
-      },
-
-      secondText: {
-        static: '',
-        hovered: 'xl:-translate-y-4 lg:-translate-y-2 sm:-translate-y-4 -translate-y-2 opacity-1',
-        unhovered: 'translate-y-10 opacity-0'
-      }
-    }
-  }
 </script>
 
 <template>
@@ -50,7 +28,7 @@
           @mouseenter="isHovered = true"
           @mouseleave="isHovered = false"
           :is-hovered="isHovered"
-          :btn="btnData"
+          :btn="footerBtn"
         />
       </form>
     </div>

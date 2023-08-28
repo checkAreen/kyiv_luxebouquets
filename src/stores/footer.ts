@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia';
 import { type FooterContacts, type FooterShop } from '@/types/footer';
-// import { type FooterContacts } from '@/types/footerContacts';
-// import { type FooterShop } from '@/types/footerShop';
-// import { type HoveredButtons } from '@/types/btnContacts';
+import type Button from '@/types/button';
 
 export const useFooterStore = defineStore('footer', {
   state: () => ({
@@ -46,5 +44,26 @@ export const useFooterStore = defineStore('footer', {
       {id: 4, text: 'Terms & conditions'},
       {id: 5, text: 'Privacy policy'}
     ] as FooterShop[],
+
+    btnData: {
+      content: 'Remind',
+      style: 'flex flex-col items-center bg-black w-full hover:bg-primary',
+      type: 'submit',
+      textStyle:{
+        common: 'text-white lg:text-[1.12vw] md:text-[2.1vw] sm:text-[2.5vw] text-[3.7vw]',
+
+        mainText: {
+          static: '',
+          hovered: '-translate-y-2 opacity-0',
+          unhovered: 'xl:translate-y-4 lg:translate-y-2 sm:translate-y-4 translate-y-3 opacity-1'
+        },
+
+        secondText: {
+          static: '',
+          hovered: 'xl:-translate-y-4 lg:-translate-y-2 sm:-translate-y-4 -translate-y-2 opacity-1',
+          unhovered: 'translate-y-10 opacity-0'
+        }
+      }
+    } as Button
   })
 })
