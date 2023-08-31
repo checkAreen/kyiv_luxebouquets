@@ -3,7 +3,7 @@
   import { useNavStore } from '@/stores/navStore';
   import { ref, type Ref } from 'vue';
   import Button from './UI/Button.vue'
-  import FooterLink from './UI/FooterLink.vue';
+  import Link from './UI/Link.vue';
 
   const contacts = useFooterStore().footerContacts;
   const shop = useFooterStore().footerShop;
@@ -41,7 +41,7 @@
         <h4 class="lg:text-[.98vw] md:text-[1.8vw] sm:text-[2.5vw] text-[3.7vw] text-secondary font-normal">
           {{ item.title }}
         </h4>
-        <FooterLink
+        <Link
           :link="item.text"
         />
       </div>
@@ -62,7 +62,7 @@
         </h3>
         <div class="flex flex-col gap-y-2">
           <div v-for="item in shop" :key="item.id">
-            <FooterLink
+            <Link
               :link="item.text"
             />
           </div>
@@ -74,7 +74,7 @@
         </h3>
         <div class="flex flex-col gap-y-2">
           <div v-for="item in service" :key="item.id">
-            <FooterLink
+            <Link
               :link="item.text"
             />
           </div>
@@ -89,14 +89,14 @@
       <div class="flex flex-col xl:gap-y-6 lg:gap-y-4 gap-y-6">
         <div class="flex flex-col gap-y-2">
           <div v-for="item in about.filter(item => item.id <= 2)" :key="item.id">
-            <FooterLink
+            <Link
               :link="item.text"
             />
           </div>
         </div>
         <div class="flex flex-col gap-y-2">
           <div v-for="item in about.filter(item => item.id > 2)" :key="item.id">
-            <FooterLink
+            <Link
               :link="item.text"
             />
           </div>

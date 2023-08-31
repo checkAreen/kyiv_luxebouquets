@@ -1,6 +1,7 @@
 export interface Navbar {
   id:number,
-  title:string
+  title:string,
+  title_2: string
 }
 
 export interface BurgerAnimation{
