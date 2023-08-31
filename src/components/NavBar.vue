@@ -123,6 +123,7 @@
           <button
             type="button"
             class="font-primary text-black font-medium md:text-[2.73vw] sm:text-[3.66vw] text-[5vw]"
+            @click.prevent="$router.push({ name: route.fullPath === '/' ? item.title : item.title_2 }); showMenu()"
           >
             {{ route.fullPath === '/' ? item.title : item.title_2 }}
           </button>
