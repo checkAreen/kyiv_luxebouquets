@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { directive as motion } from '@vueuse/motion'
+  import { MotionDirective  as motion } from '@vueuse/motion'
   import { ref, type Ref } from 'vue';
   import Button from '../UI/Button.vue';
   import { useAboutStore } from '@/stores/about';

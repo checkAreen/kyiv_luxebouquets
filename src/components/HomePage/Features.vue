@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { directive as motion } from '@vueuse/motion'
+  import { MotionDirective  as motion } from '@vueuse/motion'
   import { useHomeStore } from '@/stores/homeStore';
   import FeatureItem from './FeatureItem.vue';
 

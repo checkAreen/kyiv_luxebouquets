@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { ref, toRefs, type Ref } from 'vue';
-  import { type Button as ButtonType } from '@/types/button'
+  import { toRefs } from 'vue';
+  import type Button from '@/types/button'
 
   const props = defineProps<{
-    btn: ButtonType,
+    btn: Button,
     isHovered: boolean
   }>()
 
@@ -14,7 +14,7 @@
   <button
     class="overflow-hidden border-[1px] border-black duration-300 z-30"
     :class="btn.style"
-    :type="btn.type"
+    :type="btn.type as 'button' | 'submit' | 'reset'"
   >
     <div class="flex flex-col items-center justify-center overflow-hidden">
       <div

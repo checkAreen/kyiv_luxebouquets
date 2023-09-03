@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { useNavStore } from '@/stores/navStore';
-  import { directive as motion } from '@vueuse/motion'
+  import { MotionDirective  as motion } from '@vueuse/motion'
   import { useContactsStore } from '@/stores/contactsStore';
   import { ref, type Ref } from 'vue';
   import Button from '../UI/Button.vue';

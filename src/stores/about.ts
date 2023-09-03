@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { type Button } from '@/types/button'
+import type Button from '@/types/button'
 
 export const useAboutStore = defineStore('about', {
   state: () => ({

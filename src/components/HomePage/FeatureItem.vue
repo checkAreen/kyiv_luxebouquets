@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Features } from "@/types/features";
+import type { Features } from "@/types/features";
 
   const props = defineProps<{features: Features}>();
 </script>
