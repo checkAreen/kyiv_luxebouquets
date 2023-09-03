@@ -19,7 +19,9 @@
       <MainHomeSection />
       <!-- Right -->
       <div>
-        <ProductCard :productCard="homeStore.productCard"/>
+        <ProductCard
+          :productCard="homeStore.productCard"
+        />
       </div>
     </div>
     <AboutUs />

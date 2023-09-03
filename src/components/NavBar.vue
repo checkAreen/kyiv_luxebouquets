@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { useNavStore } from '../stores/navStore'
-  import { ref, watch, onBeforeUnmount, onBeforeMount } from 'vue'
+  import { ref, watch, onBeforeUnmount } from 'vue'
   import type { Ref } from 'vue'
   import { useScreen } from 'vue-screen'
   import Link from './UI/Link.vue'
@@ -50,7 +50,7 @@
               @click.prevent="$router.push({ name: route.fullPath === '/' ? item.title : item.title_2 })"
             >
               <Link
-                :link="route.fullPath === '/' ? item.title : item.title_2"
+                :link="route.fullPath === '/all-categories-products' ? item.title_2 : item.title"
               />
             </button>
           </div>
@@ -125,7 +125,7 @@
             class="font-primary text-black font-medium md:text-[2.73vw] sm:text-[3.66vw] text-[5vw]"
             @click.prevent="$router.push({ name: route.fullPath === '/' ? item.title : item.title_2 }); showMenu()"
           >
-            {{ route.fullPath === '/' ? item.title : item.title_2 }}
+            {{ route.fullPath === '/all-categories-products' ? item.title_2 : item.title }}
           </button>
         </div>
         <!-- Documents -->
