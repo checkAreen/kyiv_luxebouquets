@@ -25,7 +25,7 @@
       </a>
     </div>
     <div class="border-l-[1px] border-black overflow-hidden">
-      <img :src="`/images/productCards/${card.img}.png`" :alt="card.img" :class="[isHovered ? 'scale-110' : '']" class="w-full duration-300">
+      <img :src="`./images/productCards/${card.img}.png`" :alt="card.img" :class="[isHovered ? 'scale-110' : '']" class="w-full duration-300">
     </div>
   </div>
 </template>

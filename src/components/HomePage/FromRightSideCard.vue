@@ -12,7 +12,7 @@
 <template>
   <div @mouseover="isHovered = true" @mouseleave="isHovered = false" class="grid grid-cols-2 border-b-[1px] border-black">
     <div class="overflow-hidden">
-      <img :src="`/images/productCards/${card.img}.png`" :alt="card.img" :class="[isHovered ? 'scale-110' : '']" class="w-full duration-300">
+      <img :src="`./images/productCards/${card.img}.png`" :alt="card.img" :class="[isHovered ? 'scale-110' : '']" class="w-full duration-300">
     </div>
     <div class="relative flex flex-col justify-center items-center lg:p-[2.23vw] p-[3.2vw] border-l-[1px] border-black">
       <h1 class="font-primary font-medium lg:text-[2.7vw] md:text-[4.9vw] sm:text-[6.7vw] text-[6.9vw] text-black text-center">
