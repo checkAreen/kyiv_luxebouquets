@@ -19,10 +19,12 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: npm install
+      # run: npm install
+      run: yarn install
 
     - name: Build
-      run: npm run build-only
+      # run: npm run build-only
+      run: yarn build
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.5
