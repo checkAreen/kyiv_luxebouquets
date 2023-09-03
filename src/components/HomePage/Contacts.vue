@@ -94,7 +94,7 @@
           v-motion
             :initial="{scale: 1.5}"
             :visible="{scale: 1, transition: {duration: 300}}"
-          src="images/contacts/contact_img.webp" alt="Kyiv LuxeBouquets"
+          src="/images/contacts/contact_img.webp" alt="Kyiv LuxeBouquets"
           class="xl:relative lg:absolute w-full lg:h-full xl:h-auto"
         >
       </div>
