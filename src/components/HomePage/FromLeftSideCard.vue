@@ -2,9 +2,11 @@
   import { type Cards } from '@/types/cards';
   import { ref } from 'vue';
   import { type Ref } from 'vue';
+  import { useRouter } from 'vue-router';
 
   const props = defineProps<{card: Cards}>();
   let isHovered:Ref<boolean> = ref(false);
+  const router = useRouter();
 </script>
 
 <template>

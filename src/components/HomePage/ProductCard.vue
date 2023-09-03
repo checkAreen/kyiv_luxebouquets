@@ -9,8 +9,14 @@
 <template>
   <div class="bg-white">
     <div v-for="card in productCard" :key="card.id">
-      <FromLeftSideCard v-if="card.id % 2 !== 0" :card="card" />
-      <FromRightSideCard v-if="card.id % 2 === 0" :card="card"/>
+      <FromLeftSideCard
+        v-if="card.id % 2 !== 0"
+        :card="card"
+      />
+      <FromRightSideCard
+        v-if="card.id % 2 === 0"
+        :card="card"
+      />
     </div>
   </div>
 </template>

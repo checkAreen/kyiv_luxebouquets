@@ -6,11 +6,11 @@ import { type Features } from '../types/features';
 export const useHomeStore = defineStore('home', {
   state: () => ({
     productCard: [
-      {id: 1, img: 'card_1', title: 'Fresh Flowers'},
-      {id: 2, img: 'card_2', title: 'Dried Flowers'},
-      {id: 3, img: 'card_3', title: 'Live Plants'},
-      {id: 4, img: 'card_4', title: 'Aroma Candels'},
-      {id: 5, img: 'card_5', title: 'Fresheners'}
+      {id: 1, img: 'card_1', title: 'Fresh Flowers', link: 'fresh_flowers'},
+      {id: 2, img: 'card_2', title: 'Dried Flowers', link: 'dried_flowers'},
+      {id: 3, img: 'card_3', title: 'Live Plants', link: 'live_plants'},
+      {id: 4, img: 'card_4', title: 'Aroma Candels', link: 'aroma_candels'},
+      {id: 5, img: 'card_5', title: 'Fresheners', link: 'fresheners'}
     ] as Cards[],
     features: [
       {
